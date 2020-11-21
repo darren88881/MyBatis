@@ -14,7 +14,7 @@ import java.io.InputStream;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class Test01 {
 
     private SqlSessionFactory sqlSessionFactory;
 

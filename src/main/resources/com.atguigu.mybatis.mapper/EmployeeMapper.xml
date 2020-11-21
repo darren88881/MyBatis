@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.EmployeeMapper">
+    <insert id="addEmployee" parameterType="com.atguigu.mybatis.pojo.Employee" >
+        insert into tbl_employee (last_name,gender,email)
+        value (#{lastName},#{gender},#{email});
+    </insert>
+    <delete id="deleteEmployee" >
+        delete from tbl_employee where id = #{id}
+    </delete>
+    <update id="updateEmployee" >
+        update tbl_employee set last_name = #{lastName},gender=#{gender},email=#{email}
+        where id = #{id}
+    </update>
+    <select id="selectEmployee" resultType="com.atguigu.mybatis.pojo.Employee">
+        select * from tbl_employee
+    </select>
+</mapper>
