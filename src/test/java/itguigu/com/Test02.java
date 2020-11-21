@@ -25,6 +25,8 @@ public class Test02 {
     public void getSqlSessionFactory() throws IOException {
         InputStream resource = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resource);
+        //openSession:默认开启事务
+        //值为true:关闭事务
         sqlSession = sqlSessionFactory.openSession();
         mapper = sqlSession.getMapper(EmployeeMapper.class);
 
@@ -32,11 +34,10 @@ public class Test02 {
 
     @Test
     public void addEmployee(){
-
         Employee emp = new Employee();
-        emp.setLastName("darren");
+        emp.setLastName("darren2");
         emp.setGender("男");
-        emp.setEmail("darren@qq.com");
+        emp.setEmail("darren2@qq.com");
         try{
             mapper.addEmployee(emp);
             sqlSession.commit();
